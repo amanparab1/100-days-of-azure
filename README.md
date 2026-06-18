@@ -16,6 +16,7 @@ Welcome to my 100-day challenge logbook. This repository serves as a tracking hu
 | **001** | 2026-06-15 | Infrastructure Security | Provisioning an RSA SSH Key Pair via Azure CLI | [Link to Day 1 Folder](./Day-001) |
 | **002** | 2026-06-16 | Compute & Networking | Deploying Linux Compute Instances with Custom Storage Topologies | [Link to Day 2 Folder](./Day-002) |
 | **003** | 2026-06-17 | Compute Provisioning | CLI-Driven B-Series Compute Architectures with Explicit OS Disks | [Link to Day 3 Folder](./Day-003) |
+| **004** | 2026-06-18 | Cloud Networking | Designing Software-Defined Isolated Networks and Address Schemes | [Link to Day 4 Folder](./Day-004) |
 
 ---
 
@@ -55,4 +56,13 @@ Welcome to my 100-day challenge logbook. This repository serves as a tracking hu
 * **Challenges faced:** Operating with zero access to the graphical Azure Portal blade interface.
 * **How I solved it:** Fully relied on programmatic JSON querying tools using output format flags (`-o tsv`) to map underlying target infrastructures on the fly.
 * **Code/Scripts used:** Look inside the `Day-003` folder.
-  
+
+
+### Day 4: Software-Defined Networking & VNet Core Design
+* **What I built/learned:**
+    * Architected an isolated software-defined network boundary (`devops-vnet`) inside the `eastus` region using the Azure CLI.
+    * Assigned a foundational private class IPv4 CIDR address space allocation (`10.0.0.0/16`), laying down the structural root layout for upcoming subnets, gateways, and routing tables.
+    * Mastered headless network resource lifecycle creation arguments entirely removed from administrative portal interfaces.
+* **Challenges faced:** Ensuring the assigned CIDR block leaves enough subnet masks to divide compute, data, and management tiers cleanly later on.
+* **How I solved it:** Employed a large `/16` network prefix block, giving the network top-level scalability of up to 65,536 private IP allocations.
+* **Code/Scripts used:** Look inside the `Day-004` folder.
