@@ -17,6 +17,7 @@ Welcome to my 100-day challenge logbook. This repository serves as a tracking hu
 | **002** | 2026-06-16 | Compute & Networking | Deploying Linux Compute Instances with Custom Storage Topologies | [Link to Day 2 Folder](./Day-002) |
 | **003** | 2026-06-17 | Compute Provisioning | CLI-Driven B-Series Compute Architectures with Explicit OS Disks | [Link to Day 3 Folder](./Day-003) |
 | **004** | 2026-06-18 | Cloud Networking | Designing Software-Defined Isolated Networks and Address Schemes | [Link to Day 4 Folder](./Day-004) |
+| **Day 005** | 2026-06-23 | System Hardening | Linux Admin | Disabled direct root SSH access via automated `sed` inline stream editing across distributed app servers. | [Code](./Day-005/) |
 
 ---
 
@@ -66,3 +67,11 @@ Welcome to my 100-day challenge logbook. This repository serves as a tracking hu
 * **Challenges faced:** Ensuring the assigned CIDR block leaves enough subnet masks to divide compute, data, and management tiers cleanly later on.
 * **How I solved it:** Employed a large `/16` network prefix block, giving the network top-level scalability of up to 65,536 private IP allocations.
 * **Code/Scripts used:** Look inside the `Day-004` folder.
+
+
+### Day 5: Incremental Cloud Migration & Isolated Network Topologies
+* **What I Did:** Architected the foundational network layer for Nautilus DevOps' incremental cloud migration strategy. Provisioned a tightly bounded Virtual Network (`nautilus-vnet`) inside the Azure `eastus` region.
+* **Key Concepts:** Classless Inter-Domain Routing (CIDR), network segmentation, dynamic cloud resource targeting via Azure CLI query tools.
+* **Technical Details:**
+    * Network Address Space: `192.168.0.0/24` (256 IP allocations optimized for specific service isolation).
+    * Automation Hook: Used shell command substitution `$(az group list --query "[].name" -o tsv)` to automatically discover and map infrastructure to the dynamically assigned lab resource group.
