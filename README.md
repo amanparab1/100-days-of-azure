@@ -11,13 +11,13 @@ Welcome to my 100-day challenge logbook. This repository serves as a tracking hu
 
 ## 📈 Daily Progress Log
 
-| Day | Date | Focus Area | Core Concept / Task | Documentation / Code |
+|| Day | Date | Focus Area | Core Concept / Task | Documentation / Code |
 | :---: | :---: | :--- | :--- | :--- |
 | **001** | 2026-06-15 | Infrastructure Security | Provisioning an RSA SSH Key Pair via Azure CLI | [Link to Day 1 Folder](./Day-001) |
 | **002** | 2026-06-16 | Compute & Networking | Deploying Linux Compute Instances with Custom Storage Topologies | [Link to Day 2 Folder](./Day-002) |
 | **003** | 2026-06-17 | Compute Provisioning | CLI-Driven B-Series Compute Architectures with Explicit OS Disks | [Link to Day 3 Folder](./Day-003) |
 | **004** | 2026-06-18 | Cloud Networking | Designing Software-Defined Isolated Networks and Address Schemes | [Link to Day 4 Folder](./Day-004) |
-| **Day 005** | 2026-06-23 | System Hardening | Linux Admin | Disabled direct root SSH access via automated `sed` inline stream editing across distributed app servers. | [Code](./Day-005/) |
+| **005** | 2026-06-23 | Cloud Networking | Architected foundational network layer and provisioned isolated `nautilus-vnet` address topologies via Azure CLI. | [Code](./Day-005/) |
 
 ---
 
