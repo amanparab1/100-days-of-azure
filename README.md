@@ -18,6 +18,7 @@ Welcome to my 100-day challenge logbook. This repository serves as a tracking hu
 | **003** | 2026-06-17 | Compute Provisioning | CLI-Driven B-Series Compute Architectures with Explicit OS Disks | [Link to Day 3 Folder](./Day-003) |
 | **004** | 2026-06-18 | Cloud Networking | Designing Software-Defined Isolated Networks and Address Schemes | [Link to Day 4 Folder](./Day-004) |
 | **005** | 2026-06-23 | Cloud Networking | Architected foundational network layer and provisioned isolated `nautilus-vnet` address topologies via Azure CLI. | [Code](./Day-005/) |
+| **006** | 2026-06-27 | Cloud Networking | Subnet Topography | Engineered nested network architectures by carving a `/24` subnet layer inside a `/16` cloud VNet. | [Code](./Day-006/) |
 
 ---
 
@@ -75,3 +76,12 @@ Welcome to my 100-day challenge logbook. This repository serves as a tracking hu
 * **Technical Details:**
     * Network Address Space: `192.168.0.0/24` (256 IP allocations optimized for specific service isolation).
     * Automation Hook: Used shell command substitution `$(az group list --query "[].name" -o tsv)` to automatically discover and map infrastructure to the dynamically assigned lab resource group.
+ 
+
+### Day 6: Segmented Network Architecture & Subnet Allocations
+* **What I Did:** Designed and provisioned the foundational multi-tier cloud infrastructure network topology block for the Nautilus DevOps migration team. Created the parent `nautilus-vnet` network space inside `westus` and mapped an isolated `nautilus-subnet` logic container inside it.
+* **Key Concepts:** Subnet Masking, Private IP Address Space Sub-allocation, Programmatic Infrastructure Provisioning, API Schema Traversal.
+* **Technical Details:**
+    * Top-Level Ingress Boundary: `10.0.0.0/16` (65,536 theoretical addresses reserved for total regional horizontal scale).
+    * Segmented Workload Ingress: `10.0.0.0/24` (256 addresses allocated specifically to shield upcoming application tier computing runtimes).
+    * Efficiency Win: Integrated the subnet provisioning parameter directly inline inside the parent `az network vnet create` CLI statement rather than running a secondary detached dependency script block.
