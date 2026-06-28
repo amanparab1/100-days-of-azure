@@ -19,6 +19,7 @@ Welcome to my 100-day challenge logbook. This repository serves as a tracking hu
 | **004** | 2026-06-18 | Cloud Networking | Designing Software-Defined Isolated Networks and Address Schemes | [Link to Day 4 Folder](./Day-004) |
 | **005** | 2026-06-23 | Cloud Networking | Architected foundational network layer and provisioned isolated `nautilus-vnet` address topologies via Azure CLI. | [Code](./Day-005/) |
 | **006** | 2026-06-27 | Cloud Networking | Subnet Topography | Engineered nested network architectures by carving a `/24` subnet layer inside a `/16` cloud VNet. | [Code](./Day-006/) |
+| **007** | 2026-06-28 | Cloud Networking | Public IP Allocation | Provisioned standalone external ingress Public IP (`xfusion-pip`) using Standard SKU static allocation. | [Code](./Day-007/) |
 
 ---
 
@@ -85,3 +86,12 @@ Welcome to my 100-day challenge logbook. This repository serves as a tracking hu
     * Top-Level Ingress Boundary: `10.0.0.0/16` (65,536 theoretical addresses reserved for total regional horizontal scale).
     * Segmented Workload Ingress: `10.0.0.0/24` (256 addresses allocated specifically to shield upcoming application tier computing runtimes).
     * Efficiency Win: Integrated the subnet provisioning parameter directly inline inside the parent `az network vnet create` CLI statement rather than running a secondary detached dependency script block.
+ 
+
+### Day 7: External Ingress & Public IP Allocations
+* **What I Did:** Advanced the Nautilus infrastructure migration by provisioning the foundational external perimeter ingress address. Allocated a standalone Public IP resource (`xfusion-pip`) dynamically bound to the active migration resource group.
+* **Key Concepts:** Public IP (PIP) Resources, Static vs. Dynamic Allocation Methods, Azure Network SKUs (Basic vs. Standard), Headless Resource Management.
+* **Technical Details:**
+    * Resource Identifier: `xfusion-pip`
+    * Allocation Blueprint: Deployed using the `Standard` SKU paired with `Static` allocation. In modern Azure architectures, standard static IPs are required for integration with production-grade edge services like Azure Load Balancer, NAT Gateways, and Azure Firewalls.
+    * Automation Hook: Maintained script portability across ephemeral lab environments by injecting `$(az group list --query "[].name" -o tsv)` directly into the creation parameters to dynamically resolve scope boundaries.
