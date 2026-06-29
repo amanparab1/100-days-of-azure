@@ -20,6 +20,7 @@ Welcome to my 100-day challenge logbook. This repository serves as a tracking hu
 | **005** | 2026-06-23 | Cloud Networking | Architecting Foundational `nautilus-vnet` Address Topologies via CLI | [Code](./Day-005/) |
 | **006** | 2026-06-27 | Cloud Networking | Engineering Nested `/24` Subnet Layers inside a `/16` Virtual Network | [Code](./Day-006/) |
 | **007** | 2026-06-28 | Cloud Networking | Allocating External Ingress Public IPs (`xfusion-pip`) via Static SKUs | [Code](./Day-007/) |
+| **008** | 2026-06-29 | Compute Storage | Data Disk Attachment | Attached existing cloud managed disks (`devops-disk`) to running compute nodes (`devops-vm`) via CLI. | [Code](./Day-008/) |
 
 ---
 ## 📝 Detailed Logbook
@@ -94,3 +95,12 @@ Welcome to my 100-day challenge logbook. This repository serves as a tracking hu
     * Resource Identifier: `xfusion-pip`
     * Allocation Blueprint: Deployed using the `Standard` SKU paired with `Static` allocation. In modern Azure architectures, standard static IPs are required for integration with production-grade edge services like Azure Load Balancer, NAT Gateways, and Azure Firewalls.
     * Automation Hook: Maintained script portability across ephemeral lab environments by injecting `$(az group list --query "[].name" -o tsv)` directly into the creation parameters to dynamically resolve scope boundaries.
+
+
+
+### Day 8: Compute Storage Architecture & Data Disk Mapping
+* **What I Did:** Executed a storage scaling operation for the Nautilus migration project. Attached a pre-provisioned standalone managed disk (`devops-disk`) as a persistent data disk to an active virtual machine (`devops-vm`).
+* **Key Concepts:** Azure Managed Disks, Logical Unit Numbers (LUN), Hot-Pluggable Storage Infrastructure, VM Storage Profiles.
+* **Technical Details:**
+    * Target Compute: `devops-vm` | Target Storage: `devops-disk`
+    * Architecture Win: Used `az vm disk attach` to hot-plug the storage block dynamically. In Azure, attaching external data disks isolates volatile application write cycles from the operating system root disk, allowing independent storage snapshotting and performance tier scaling.
